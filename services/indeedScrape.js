@@ -1,44 +1,42 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-module.exports =/*const test = */ async (req,res) => {
 
-    const { topic, start, end } = req.query;
-    
-    try {
-      const data = await axios.get(`https://www.nytimes.com/search?query=corona`);
-      
-      const articles = [];
-      const $ = cheerio.load(data.data, {
-        normalizeWhitespace: true,
-        xmlMode: true,
-        lowerCaseTags: true
-      });
-  
-      const orderedArticles = $('li')
-  
-      for (let i = 0; ((articles.length <=5) && (i < 25)); i++) {
-  
-        let url = $(orderedArticles[i]).find('a').attr('href');
-  
-  
-        const title = $(orderedArticles[i]).find('h4').text();
-        const description = $(orderedArticles[i]).find('p').text();
-        const img = $(orderedArticles[i]).find('img').attr('src');
-  
-        if ((url !== undefined) && (img !== undefined) && (title !== undefined) && (description !== undefined)) {
-          console.log(url);
-          if(url.indexOf(".com") === -1){
-            url = "https://www.nytimes.com" + url;
-          }
-          console.log(url);
-          articles.push({ url, title, description, img });
-        }
-  
-      }
-  
-      res.json(articles);
-  
-    } catch(err) {
-      console.log(err);
-    }
-  }
+module.exports = async ( req, res ) => {
+
+    // Test Variables
+    let searchTerm = "full+stack+web+developer"
+    let location = "Orlando%2C+FL"
+
+    // const { searchTerm, location }
+
+    axios.get("https://www.indeed.com/jobs?q=full+stack+web+developer&l=Orlando%2C+FL").then(function(response) {
+
+  // Load the HTML into cheerio
+  var $ = cheerio.load(response.data);
+
+  // Make an empty array for saving our scraped info
+  var results = [];
+
+  // With cheerio, look at each award-winning site, enclosed in "figure" tags with the class name "site"
+  $("div.result").each(function(i, element) {
+
+    /* Cheerio's find method will "find" the first matching child element in a parent.
+     *    We start at the current element, then "find" its first child a-tag.
+     *    Then, we "find" the lone child img-tag in that a-tag.
+     *    Then, .attr grabs the imgs srcset value.
+     *    The srcset value is used instead of src in this case because of how they're displaying the images
+     *    Visit the website and inspect the DOM if there's any confusion
+    */
+    var preLink = $(element).find("a").attr("href");
+
+    const postLink = "https://www.indeed.com" + preLink;
+
+    // Push the image's URL (saved to the imgLink var) into the results array
+    results.push({ link: postLink });
+  });
+
+  // After looping through each element found, log the results to the console
+  res.json(results)
+  console.log(results);
+});
+};

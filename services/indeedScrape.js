@@ -19,12 +19,15 @@ module.exports = async ( req, res ) => {
 		
 			$("div.result").each(function(i, element) {
 
-				var preLink = $(element).find("a").attr("href");
-				const link = "https://www.indeed.com" + preLink;
-
+				const link = "https://www.indeed.com" + $(element).find("a").attr("href");
 				const title = $(element).find("div.title").text().trim();
+				const company = $(element).find("div.sjcl").find("div").find("span.company").text().trim();
+				const date = $(element).find("div.result-link-bar").find("span.date").text().trim();
+				const descriptions = $(element).find("div.summary li").map(function() {
+					return $(this).text();
+				}).toArray();
 
-				results.push({ link, title });
+				results.push({ link, title, company, descriptions, date });
 			});
 
 		res.json(results)

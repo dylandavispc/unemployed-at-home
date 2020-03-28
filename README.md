@@ -26,7 +26,7 @@ A home-page for UnEmployed people like yourself.<br />
 - [x] Create Google Search
 - [x] Learn Local Storage
 - [ ] Implement Local Storage
-- [ ] Indeed Scraper
+- [x] Indeed Scraper
 - [ ] Dice Scraper
 - [ ] Style / Layout
 - [ ] Career Builder

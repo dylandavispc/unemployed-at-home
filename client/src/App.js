@@ -10,7 +10,7 @@ function App() {
         <h2 id="Logo"><strong>Un</strong>Employed at <strong>Home</strong></h2>
         <Google />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          "Get a job ya bum!" - Dylan Davis
         </p>
         <a
           className="App-link"
@@ -18,7 +18,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Get a Job
         </a>
       </header>
       <main>

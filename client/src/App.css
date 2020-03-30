@@ -25,19 +25,17 @@
 }
 
 main {
-  background-color: #666666;
+  background-color: white;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  text-align: initial;
 }
 
 .App-link {
   color: #61dafb;
-}
+} 
 
 @keyframes App-logo-spin {
   from {

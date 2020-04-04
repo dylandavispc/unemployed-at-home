@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+import JobCard from './JobCard'
 import './style.css'
 
 export default function Display() {
@@ -10,17 +11,9 @@ export default function Display() {
         searchJobs();
     }, []);
 
-const indeedList = indeedJobs.map(job => <li>{job.title}</li>)
-
     const searchJobs = async () => {
-        // Scrape Indeed
-        // let indeedRes = await axios.get("http://localhost:3001/api/scrape/indeed");
-        // let indeed = indeedRes.data;
-        //     // Console log results
-        // setIndeed(indeedRes.data)
-        // console.log(indeed)
-        // console.log(indeedJobs)
 
+        // Indeed Search
         axios.get('http://localhost:3001/api/scrape/indeed')
         .then(function (response) {
             console.log(response.status);
@@ -32,18 +25,11 @@ const indeedList = indeedJobs.map(job => <li>{job.title}</li>)
             console.log(error);
         });
 
-
-            // Fill Table with Results
-            // .then(res => {
-            //     res.map()
-            // })
     }
 
     return (
         <div>
-            <ul>
-                {indeedList}
-            </ul>
+            <JobCard indeedJobs={indeedJobs} />
         </div>
     )
 }

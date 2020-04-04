@@ -13,14 +13,14 @@ export default function JobCard(props) {
 
     const insertJobs = () => {
         let insert = jobs.map(job => 
-            <li>
+            <li className="cardList">
                 <div className="card">
                     <div className="card-body">
-                        <h5 className="card-title">{job.title}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{job.company}</h6>
+                        <div className="card-title">{job.title}</div>
+                        <div className="card-subtitle mb-2 text-muted">{job.company}</div>
                         <p className="card-text">{job.descriptions[0]}</p>
                         <a href={job.link} className="card-link">Apply</a>
-                        <a href="#" className="card-link">{job.date}</a>
+                        <div href="#" cldivssName="card-link">{job.date}</div>
                     </div>
                 </div>
             </li>)
@@ -28,7 +28,7 @@ export default function JobCard(props) {
     };
 
     return (
-        <ul>
+        <ul className="list">
             {indeedList}
         </ul>
     )

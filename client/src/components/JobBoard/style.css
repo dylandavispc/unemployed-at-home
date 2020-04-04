@@ -34,3 +34,19 @@
     visibility: visible;
 }
 
+.list {
+    padding: 0px;
+    list-style: none;
+}
+
+.cardList {
+    width: 33.32%;
+    display: inline-flex;
+    margin-bottom: 5px;
+}
+
+.card {
+    margin: 4px;
+    font-size: calc(2px + 2vmin) !important;
+}
+

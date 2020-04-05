@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header id="Google"className="App-header">
         <h2 id="Logo"><strong>Un</strong>Employed at <strong>Home</strong></h2>
         <Google />
         <p>
@@ -20,9 +20,12 @@ function App() {
         >
           Get a Job
         </a>
+        <a className="arrowDown" href="#JobBoard">▼</a>
       </header>
-      <main>
+      <main id="JobBoard">
+        <a className="arrowUp" href="#Google">▲</a>
         <JobBoard />
+        <footer>Created by<a href="//www.dylandavis.io" target="_blank"> Dylan Davis</a></footer>
       </main>
     </div>
   );

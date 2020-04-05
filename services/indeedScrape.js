@@ -9,7 +9,7 @@ module.exports = async ( req, res ) => {
   let searchTerm = "full+stack+web+developer"
   let gps = "Orlando%2C+FL"
 
-  const url = "https://www.indeed.com/jobs?q=" + searchTerm + "r&l=" + gps + "&sort=date";
+  const url = "https://www.indeed.com/jobs?q=" + searchTerm + "r&l=" + gps + "&limit=50&sort=date";
 
 	try {
 		axios.get(url).then(function(response) {

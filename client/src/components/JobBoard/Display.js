@@ -5,6 +5,7 @@ import './style.css'
 
 export default function Display() {
     const [ indeedJobs, setIndeed ] = useState([]);
+    let searchTerm = "Full Stack Web Developer"
 
     // Component Mount Function
     useEffect(() => {
@@ -27,6 +28,10 @@ export default function Display() {
 
     return (
         <div className="scroll">
+            <div className="searchTerm">
+                {searchTerm}
+                <hr />
+            </div>
             <JobCard indeedJobs={indeedJobs} />
         </div>
     )

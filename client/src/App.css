@@ -22,7 +22,29 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  scroll-snap-align: start;
 }
+
+.arrowDown {
+  position: absolute;
+  bottom: 15px;
+}
+.arrowUp {
+  margin-top: 15px;
+}
+
+footer {
+  height: 4vh;
+  padding: 1vh;
+  font-size: 12px;
+  margin-top: auto;
+  color: white;
+  background-color: #282c34;
+}
+
+body::-webkit-scrollbar { 
+  display: none; 
+} 
 
 main {
   background-color: white;
@@ -30,7 +52,9 @@ main {
   display: flex;
   font-size: calc(10px + 2vmin);
   color: black;
-  text-align: initial;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .App-link {

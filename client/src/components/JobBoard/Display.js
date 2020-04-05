@@ -12,7 +12,6 @@ export default function Display() {
     }, []);
 
     const searchJobs = async () => {
-
         // Indeed Search
         axios.get('http://localhost:3001/api/scrape/indeed')
         .then(function (response) {
@@ -24,11 +23,10 @@ export default function Display() {
         .catch(function (error) {
             console.log(error);
         });
-
     }
 
     return (
-        <div>
+        <div className="scroll">
             <JobCard indeedJobs={indeedJobs} />
         </div>
     )

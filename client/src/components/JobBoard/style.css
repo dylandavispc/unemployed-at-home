@@ -46,7 +46,34 @@
 }
 
 .card {
-    margin: 4px;
+    width: 100%;
+    margin: 10px;
     font-size: calc(2px + 2vmin) !important;
 }
 
+div.scroll { 
+    height: 100%; 
+    overflow: auto; 
+    text-align:justify; 
+} 
+
+@media only screen and (max-width: 1500px) {
+    .cardList {
+        width: 50%;
+        display: inline-flex;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .cardList {
+        width: 97%;
+        display: list-item;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .cardList {
+        width: 95%;
+        display: list-item;
+    }
+}

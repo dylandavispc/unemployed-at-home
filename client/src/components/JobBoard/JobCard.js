@@ -17,10 +17,11 @@ export default function JobCard(props) {
                 <div className="card">
                     <div className="card-body">
                         <div className="card-title">{job.title}</div>
-                        <div className="card-subtitle mb-2 text-muted">{job.company}</div>
+                        <div className="card-subtitle text-muted">{job.company}</div>
+                        <div className="card-subtitle mb-2 text-muted">{job.location}</div>
                         <p className="card-text">{job.descriptions[0]}</p>
-                        <a href={job.link} className="card-link">Apply</a>
-                        <div href="#" cldivssName="card-link">{job.date}</div>
+                        <a href={job.link} target="_blank" className="card-link">Apply</a>
+                        <div cldivssName="card-link">{job.date}</div>
                     </div>
                 </div>
             </li>)
